@@ -33,15 +33,13 @@ function FindProjectProjectDetail() {
         const token = localStorage.getItem("token");
 
         const { data } = await axios.get(
-          `http://127.0.0.1:8000/api/v2/projectreq/${id}`,
+          `https://projectnest-w2tf.onrender.com/api/v2/projectreq/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         );
-
-        // console.log("Fetched data:", data.data.canSendRequest); // Log the fetched data to inspect its structure
 
         if (data && data.data) {
           // Adjust based on the actual data structure
@@ -83,7 +81,7 @@ function FindProjectProjectDetail() {
       const token = localStorage.getItem("token");
 
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/v2/projectreq/${id}/send-join-request`,
+        `https://projectnest-w2tf.onrender.com/api/v2/projectreq/${id}/send-join-request`,
         {}, // Assuming the PATCH request does not require a body
         {
           headers: {
@@ -92,11 +90,9 @@ function FindProjectProjectDetail() {
           },
         }
       );
-      console.log("Join request sent successfully:", response.data);
+
       setCanSendRequest(false);
     } catch (err) {
-      console.log("Join request sent successfully error:", err);
-
       console.error("Error sending join request:", err.message);
       setJoinError(err.response.data.message);
     } finally {

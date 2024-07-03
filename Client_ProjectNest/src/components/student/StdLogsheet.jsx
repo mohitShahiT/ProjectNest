@@ -3,7 +3,7 @@ import DateBox from "../DateBox";
 import axios from "axios";
 import { useProject } from "../../contexts/ProjectContext";
 import Spinner from "../Spinner";
-const BASE_URL = "http://127.0.0.1:8000/api/v2";
+const BASE_URL = "https://projectnest-w2tf.onrender.com/api/v2";
 
 export default function StdLogsheet() {
   const { projectDetails } = useProject();
@@ -22,9 +22,8 @@ export default function StdLogsheet() {
           },
         });
         setTasks(res.data.tasks);
-        console.log(res.data);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       } finally {
         setIsTaskLoading(false);
       }

@@ -10,7 +10,7 @@ export default function TaskItem() {
     const fetchTasks = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/api/v2/project/${projectDetails.project._id}/task?status=progress`,
+          `https://projectnest-w2tf.onrender.com/api/v2/project/${projectDetails.project._id}/task?status=progress`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -23,7 +23,6 @@ export default function TaskItem() {
         }
 
         const data = await response.json();
-        console.log("Fetched data:", data);
         setTasks(data.tasks); // Adjust this line based on the structure of the API response
       } catch (error) {
         console.error("Error fetching tasks:", error);

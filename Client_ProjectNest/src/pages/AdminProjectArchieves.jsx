@@ -18,14 +18,13 @@ function Archives() {
 
       try {
         const projectResponse = await axios.get(
-          "http://127.0.0.1:8000/api/v2/project?status=completed",
+          "https://projectnest-w2tf.onrender.com/api/v2/project?status=completed",
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         );
-        console.log(archived);
         setArchived(projectResponse.data.data.projects);
       } catch (err) {
         setError(err.message);
@@ -87,7 +86,7 @@ function ProjectCard({ project }) {
       </p>
       <div className=" mt-10  hover:text-slate-950">
         <a
-          href={`http://127.0.0.1:8000/public/projectproposals/${project.proposalFile}`}
+          href={`https://projectnest-w2tf.onrender.com/public/projectproposals/${project.proposalFile}`}
           target="_blank"
         >
           <span>Final Report: </span>

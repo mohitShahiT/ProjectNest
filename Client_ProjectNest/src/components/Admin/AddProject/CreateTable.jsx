@@ -18,7 +18,6 @@ const CreateTable = ({
 }) => {
   const [selectedFilter, setSelectedFilter] = useState("title");
 
-  console.log(supervisors);
 
   const table = useReactTable({
     data,

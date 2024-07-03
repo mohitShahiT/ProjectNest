@@ -44,10 +44,9 @@ export default function StudentCreateProjectForm() {
       try {
         setIsLoading(true);
         const token = localStorage.getItem("token");
-        console.log("Token retrieved:", token);
 
         const { data } = await axios.get(
-          `http://127.0.0.1:8000/api/v2/projectreq/my-project-proposal`,
+          `https://projectnest-w2tf.onrender.com/api/v2/projectreq/my-project-proposal`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -56,7 +55,6 @@ export default function StudentCreateProjectForm() {
         );
         if (data.data.projectProposal) {
           setAlreadyHasProject(true);
-          console.log("already has a project", data.data.projectProposal);
         }
       } catch (err) {
         console.error("Error fetching projects:", err.message);
@@ -110,12 +108,11 @@ export default function StudentCreateProjectForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-    console.log("Token retrieved:", token);
 
     try {
       setIsLoading(true);
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/v2/projectreq",
+        "https://projectnest-w2tf.onrender.com/api/v2/projectreq",
         {
           title: formData.title,
           problemStatement: formData.problem,
@@ -129,7 +126,6 @@ export default function StudentCreateProjectForm() {
           },
         }
       );
-      console.log("Project created successfully:", response.data);
       setFormSubmitted(true); // Set formSubmitted to true after successful submission
     } catch (error) {
       console.error(error.message);

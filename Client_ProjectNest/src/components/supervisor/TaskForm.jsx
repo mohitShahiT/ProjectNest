@@ -79,9 +79,6 @@ export default function TaskForm() {
       remarks: formData.remarks,
     };
 
-    console.log("Submit Data:", submitData);
-    console.log("Project ID:", projectDetails.project._id);
-
     if (!projectDetails.project) {
       console.error("Project details are not available.");
       alert("Project details are not available. Please try again.");
@@ -96,7 +93,7 @@ export default function TaskForm() {
       }
 
       const response = await axios.post(
-        `http://127.0.0.1:8000/api/v2/project/${projectDetails.project._id}/task`,
+        `https://projectnest-w2tf.onrender.com/api/v2/project/${projectDetails.project._id}/task`,
         submitData,
         {
           headers: {

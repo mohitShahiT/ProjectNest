@@ -11,7 +11,10 @@ function useSocket() {
 
 function SocketProvider({ children }) {
   //   const socket = io("http://localhost:8001");
-  const socket = useMemo(() => io("http://localhost:8001"), []);
+  const socket = useMemo(
+    () => io("https://projectnest-w2tf.onrender.com:8001"),
+    []
+  );
 
   return (
     <SocketContext.Provider value={{ socket }}>

@@ -23,17 +23,15 @@ function MyProject() {
       try {
         setIsLoading(true);
         const token = localStorage.getItem("token");
-        console.log("Token retrieved:", token);
 
         const { data } = await axios.get(
-          `http://127.0.0.1:8000/api/v2/projectreq/my-project-proposal`,
+          `https://projectnest-w2tf.onrender.com/api/v2/projectreq/my-project-proposal`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         );
-        console.log("Projects fetched successfully");
         setProjects(data.data.projectProposal);
       } catch (err) {
         console.error("Error fetching projects:", err.message);
@@ -67,7 +65,7 @@ function MyProject() {
 
       setIsAccepting(true);
       const { data } = await axios.patch(
-        `http://127.0.0.1:8000/api/v2/projectreq/${projectId}/accept-join-request`,
+        `https://projectnest-w2tf.onrender.com/api/v2/projectreq/${projectId}/accept-join-request`,
         {
           requestorUserId: person._id,
         },
@@ -88,7 +86,7 @@ function MyProject() {
       // }));
       setProjects(data.data.projectProposal);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     } finally {
       setIsAccepting(false);
     }
@@ -101,7 +99,7 @@ function MyProject() {
       setErrorMessage("");
       setIsSendingProposal(true);
       const { data } = await axios.patch(
-        `http://127.0.0.1:8000/api/v2/projectreq/${projectId}/send`,
+        `https://projectnest-w2tf.onrender.com/api/v2/projectreq/${projectId}/send`,
         {},
         {
           headers: {
@@ -113,7 +111,6 @@ function MyProject() {
         ...prevProjects,
         status: "pending",
       }));
-      console.log(data);
       setProjects(data.data.projectProposal);
     } catch (err) {
       setErrorMessage(err.response.data.message);
@@ -128,7 +125,7 @@ function MyProject() {
       const projectId = projects._id;
       setIsRejecting(true);
       const { data } = await axios.patch(
-        `http://127.0.0.1:8000/api/v2/projectreq/${projectId}/reject-join-request`,
+        `https://projectnest-w2tf.onrender.com/api/v2/projectreq/${projectId}/reject-join-request`,
         {
           requestorUserId: person._id,
         },
@@ -148,7 +145,7 @@ function MyProject() {
       // }));
       setProjects(data.data.projectProposal);
     } catch (err) {
-      console.log(err.message);
+      console.error(err.message);
     } finally {
       setIsRejecting(false);
     }
@@ -164,7 +161,7 @@ function MyProject() {
       formData.append("proposal", file);
 
       const { data } = await axios.patch(
-        `http://127.0.0.1:8000/api/v2/projectreq/${projectId}/proposal-pdf`,
+        `https://projectnest-w2tf.onrender.com/api/v2/projectreq/${projectId}/proposal-pdf`,
         formData,
         {
           headers: {
@@ -280,7 +277,7 @@ function MyProject() {
             <p className=" text-blue-700">
               {" "}
               <a
-                href={`http://127.0.0.1:8000/public/projectproposals/${projects.proposalPDF}`}
+                href={`https://projectnest-w2tf.onrender.com/public/projectproposals/${projects.proposalPDF}`}
                 alt="PDF"
                 target="_blank"
                 rel="noopener noreferrer"

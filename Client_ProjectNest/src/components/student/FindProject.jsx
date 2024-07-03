@@ -13,7 +13,6 @@ function FindProject() {
   const [projects, setProjects] = useState([]);
 
   const token = localStorage.getItem("token");
-  console.log("Token retrieved:", token);
 
   function onSearch(e) {
     setSearchTerm(e.target.value);
@@ -32,15 +31,13 @@ function FindProject() {
       try {
         setIsLoading(true);
         const { data } = await axios.get(
-          `http://127.0.0.1:8000/api/v2/projectreq`,
+          `https://projectnest-w2tf.onrender.com/api/v2/projectreq`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         );
-        console.log("Projects fetched successfully");
-        console.log(data);
         setAllProjects(data.data.projectsProposals);
         setProjects(data.data.projectsProposals);
         setIsLoading(false);

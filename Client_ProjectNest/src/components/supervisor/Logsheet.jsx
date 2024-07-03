@@ -15,7 +15,7 @@ export default function Logsheet() {
     const fetchTasks = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/api/v2/project/${projectDetails.project._id}/task?status=progress`,
+          `https://projectnest-w2tf.onrender.com/api/v2/project/${projectDetails.project._id}/task?status=progress`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -28,7 +28,6 @@ export default function Logsheet() {
         }
 
         const fetchedData = await response.json();
-        console.log("Fetched data:", fetchedData);
 
         // Transform fetched data to match the initial data structure
         const transformedData = fetchedData.tasks.map((task, index) => ({
@@ -58,7 +57,6 @@ export default function Logsheet() {
 
   const handleUpdate = async (id) => {
     const rowData = data.find((row) => row.id === id);
-    console.log("Updated row data:", rowData);
 
     try {
       const updateData = {
@@ -71,7 +69,7 @@ export default function Logsheet() {
       // console.log(requestBodyString);
 
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/v2/project/${projectDetails.project._id}/task/review`,
+        `https://projectnest-w2tf.onrender.com/api/v2/project/${projectDetails.project._id}/task/review`,
         updateData,
         {
           headers: {
@@ -81,7 +79,6 @@ export default function Logsheet() {
           // body: requestBodyString,
         }
       );
-      console.log(response);
       // const result = await response.json();
       // console.log("Update response:", result);
 

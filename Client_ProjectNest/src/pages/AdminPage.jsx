@@ -11,7 +11,6 @@ function AdminPage() {
     }
   }, []);
   if (!user) return <h1>Loading...</h1>;
-  console.log(user);
   return (
     <div className="bg-backgroundlight h-full p-2 flex flex-row text-text">
       <div className=" h-full   sticky top-2">

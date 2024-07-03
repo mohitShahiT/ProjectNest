@@ -10,7 +10,7 @@ import ProjectCard from "../components/student/ProjectCard";
 import StudentProjectPage from "./StudentProjectPage";
 import axios from "axios";
 
-const BASE_URL = "http://127.0.0.1:8000/api/v2";
+const BASE_URL = "https://projectnest-w2tf.onrender.com/api/v2";
 
 export default function StudentDashboard() {
   const [projects, setProjects] = useState([]);
@@ -19,7 +19,6 @@ export default function StudentDashboard() {
   const { user, getUser } = useUser();
   useEffect(() => {
     async function fetchUser() {
-      console.log("isfdf");
       await getUser();
     }
     fetchUser();

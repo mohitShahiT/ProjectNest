@@ -13,7 +13,7 @@ export function ProjectProvider({ children }) {
       setIsLoading(true);
       const token = localStorage.getItem("token");
       const res = await axios.get(
-        `http://127.0.0.1:8000/api/v2/project/my-projects/${projectId}`,
+        `https://projectnest-w2tf.onrender.com/api/v2/project/my-projects/${projectId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

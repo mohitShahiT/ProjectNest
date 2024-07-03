@@ -24,7 +24,7 @@ export function Form() {
     setError("");
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v2/user/login",
+        "https://projectnest-w2tf.onrender.com/api/v2/user/login",
         {
           email: username,
           password,
@@ -34,7 +34,6 @@ export function Form() {
       const user = response.data.data.user;
       const token = response.data.token;
       localStorage.setItem("token", token);
-      console.log("Token saved:", token);
 
       login(user); // update the context with the logged-in user
 

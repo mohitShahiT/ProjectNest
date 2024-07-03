@@ -22,7 +22,7 @@ function ProjectRequests() {
     const supervisorId = selectedSupervisors[project_id];
 
     const data = await axios.patch(
-      `http://127.0.0.1:8000/api/v2/projectreq/${project_id}/accept-proposal`,
+      `https://projectnest-w2tf.onrender.com/api/v2/projectreq/${project_id}/accept-proposal`,
       {
         supervisor: supervisorId,
       },
@@ -33,15 +33,13 @@ function ProjectRequests() {
       }
     );
 
-    console.log(data);
     setProjectreq((prev) => prev.filter((proj) => proj._id !== project_id));
   }
 
   async function handlerejectRequest(project_id) {
     const token = localStorage.getItem("token");
-    console.log("projectreq", projectreq);
     const data = await axios.patch(
-      `http://127.0.0.1:8000/api/v2/projectreq/${project_id}/reject-proposal`,
+      `https://projectnest-w2tf.onrender.com/api/v2/projectreq/${project_id}/reject-proposal`,
       {},
       {
         headers: {
@@ -49,7 +47,6 @@ function ProjectRequests() {
         },
       }
     );
-    console.log(data);
     setProjectreq((prev) => prev.filter((proj) => proj._id !== project_id));
   }
 
@@ -58,7 +55,7 @@ function ProjectRequests() {
       const token = localStorage.getItem("token");
       setLoading(true);
       const data = await axios.get(
-        "http://127.0.0.1:8000/api/v2/projectreq/proposals",
+        "https://projectnest-w2tf.onrender.com/api/v2/projectreq/proposals",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -67,7 +64,7 @@ function ProjectRequests() {
       );
 
       const supervisor = await axios.get(
-        "http://127.0.0.1:8000/api/v2/user?role=supervisor",
+        "https://projectnest-w2tf.onrender.com/api/v2/user?role=supervisor",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -75,10 +72,8 @@ function ProjectRequests() {
         }
       );
       setLoading(false);
-      console.log(supervisor.data.data.users);
 
       setProjectreq(data.data.proposals);
-      console.log("Proposal PDF", data.data.proposals);
       setSupervisors(supervisor.data.data.users);
     }
     fetchProjectReq();
@@ -110,7 +105,7 @@ function ProjectRequests() {
       id: "proposal",
       cell: (info) => (
         <a
-          href={`http://127.0.0.1:8000/public/projectproposals/${info.getValue()}`}
+          href={`https://projectnest-w2tf.onrender.com/public/projectproposals/${info.getValue()}`}
           target="_blank"
         >
           <span className=" text-blue-600 hover:text-red-200">View </span>

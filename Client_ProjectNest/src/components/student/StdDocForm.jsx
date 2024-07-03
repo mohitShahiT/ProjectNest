@@ -25,7 +25,7 @@ export default function StdDocForm() {
       formData.append(documentType.toLocaleLowerCase(), file);
 
       const { data } = await axios.patch(
-        `http://127.0.0.1:8000/api/v2/project/${projectId}/${documentType.toLowerCase()}`,
+        `https://projectnest-w2tf.onrender.com/api/v2/project/${projectId}/${documentType.toLowerCase()}`,
         formData,
         {
           headers: {

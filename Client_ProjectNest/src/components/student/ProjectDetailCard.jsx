@@ -10,7 +10,6 @@ export default function ProjectDetailCard({
   id,
   user,
 }) {
-  console.log("projet details", title, tags, description, id, user);
   const trimmedDescription = trimText(description, 90);
   // const trimmedDescription = description;
   return (

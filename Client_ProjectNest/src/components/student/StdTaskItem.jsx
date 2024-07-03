@@ -5,7 +5,7 @@ import { useProject } from "../../contexts/ProjectContext";
 import { useUser } from "../../contexts/userContext";
 import Spinner from "../Spinner";
 
-const BASE_URL = "http://127.0.0.1:8000/api/v2";
+const BASE_URL = "https://projectnest-w2tf.onrender.com/api/v2";
 
 export default function StdTaskItem() {
   const { projectDetails } = useProject();
@@ -34,7 +34,7 @@ export default function StdTaskItem() {
         );
         setTasks(res.data.myTasks);
       } catch (err) {
-        console.log(err.message);
+        console.error(err.message);
       } finally {
         setIsTaskLoading(false);
       }

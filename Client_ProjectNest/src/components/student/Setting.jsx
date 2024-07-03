@@ -18,7 +18,6 @@ function Setting() {
   }
 
   function handleNewUserJoined(data) {
-    console.log(data);
     setCurrentUser(data.username);
     navigate(`?room=${data.roomId}`);
   }
@@ -65,7 +64,6 @@ function Setting() {
     });
     setMessage("");
   }
-  console.log(roomMessages);
 
   if (roomId) {
     return (

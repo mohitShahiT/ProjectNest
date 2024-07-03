@@ -12,7 +12,6 @@ export default function StdMembers() {
   };
 
   const { projectDetails, isLoading, error } = useProject();
-  console.log(projectDetails?.project?.members); // Logging to verify the structure
 
   if (isLoading) {
     return <div>Loading...</div>;

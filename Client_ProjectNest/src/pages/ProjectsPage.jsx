@@ -14,12 +14,6 @@ export default function ProjectsPage() {
     }
   }, [projectId, fetchProjectData]);
 
-  useEffect(() => {
-    if (projectDetails) {
-      console.log("Fetched Project Details:", projectDetails);
-    }
-  }, [projectDetails]);
-
   if (isLoading) {
     return (
       <div className="bg-backgroundlight w-full h-screen p-2 flex gap-3 justify-center items-center">

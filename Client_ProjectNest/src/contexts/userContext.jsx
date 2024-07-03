@@ -15,9 +15,8 @@ function UserProvider({ children }) {
 
   async function getUser() {
     const token = localStorage.getItem("token");
-    console.log(token);
     const res = await axios.get(
-      `http://127.0.0.1:8000/api/v2/user/token/${token}`
+      `https://projectnest-w2tf.onrender.com/api/v2/user/token/${token}`
     );
     setUser(res.data.user);
   }

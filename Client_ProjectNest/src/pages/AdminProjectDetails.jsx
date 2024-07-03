@@ -48,7 +48,7 @@ function AdminProjectDetails() {
 
       try {
         const projectResponse = await axios.get(
-          "http://127.0.0.1:8000/api/v2/project",
+          "https://projectnest-w2tf.onrender.com/api/v2/project",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -57,7 +57,7 @@ function AdminProjectDetails() {
         );
 
         const supervisorResponse = await axios.get(
-          "http://127.0.0.1:8000/api/v2/user?role=supervisor",
+          "https://projectnest-w2tf.onrender.com/api/v2/user?role=supervisor",
           {
             headers: {
               Authorization: `Bearer ${token}`,

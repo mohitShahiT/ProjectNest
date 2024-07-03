@@ -1,6 +1,6 @@
 import { FaFileAlt } from "react-icons/fa";
 
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = "https://projectnest-w2tf.onrender.com";
 export default function StdFile({ fileName, fileTitle, projectTitle }) {
   return (
     <a href={`${BASE_URL}/public/projectproposals/${fileName}`} target="_blank">

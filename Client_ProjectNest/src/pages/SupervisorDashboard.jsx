@@ -10,7 +10,7 @@ import ProjectsPage from "./ProjectsPage";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 
-const BASE_URL = "http://127.0.0.1:8000/api/v2";
+const BASE_URL = "https://projectnest-w2tf.onrender.com/api/v2";
 
 export default function SupervisorDashboard() {
   const [projects, setProjects] = useState([]);
@@ -26,7 +26,6 @@ export default function SupervisorDashboard() {
   useEffect(function () {
     async function fetchProjects() {
       try {
-        console.log("projects");
         const token = localStorage.getItem("token");
         setIsLoading(true);
         const res = await axios.get(`${BASE_URL}/project/my-projects`, {
@@ -44,7 +43,6 @@ export default function SupervisorDashboard() {
     }
     fetchProjects();
   }, []);
-  console.log(projects);
   if (!user) {
     return (
       <div className="bg-backgroundlight w-full h-screen  flex justify-center items-center">

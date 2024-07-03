@@ -15,11 +15,6 @@ export default function StudentProjectPage() {
     }
   }, [projectId]);
 
-  useEffect(() => {
-    if (projectDetails) {
-      console.log("Fetched Project Details:", projectDetails);
-    }
-  }, [projectDetails]);
 
   if (isLoading) {
     return (

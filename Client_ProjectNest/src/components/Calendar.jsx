@@ -6,7 +6,7 @@ import generateDate from "../utils/generateDate";
 import getMonth from "../utils/getMonth";
 import axios from "axios";
 import Spinner from "./Spinner";
-const BASE_URL = "http://127.0.0.1:8000/api/v2";
+const BASE_URL = "https://projectnest-w2tf.onrender.com/api/v2";
 
 export default function Calendar() {
   //get events from api call
@@ -16,7 +16,7 @@ export default function Calendar() {
       try {
         setIsEventLoading(true);
         const res = await axios.get(`${BASE_URL}/event`);
-        console.log("events date", res);
+        // console.log("events date", res);
       } catch (err) {
         console.log(err.message);
       } finally {
