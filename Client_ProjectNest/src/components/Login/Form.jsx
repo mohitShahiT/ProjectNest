@@ -13,6 +13,7 @@ export function Form() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const { login } = useUser(); // use the login function from context
+  const [isLoading, setIsLoading] = useState(false);
 
   const styleobj = [
     { inputtype: "text", placeholder: "Username or Email", margin: 12 },
@@ -23,6 +24,7 @@ export function Form() {
     e.preventDefault();
     setError("");
     try {
+      setIsLoading(true);
       const response = await axios.post(
         "https://projectnest-w2tf.onrender.com/api/v2/user/login",
         {
@@ -46,6 +48,8 @@ export function Form() {
       }
     } catch (error) {
       setError("Invalid username or password. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -69,7 +73,7 @@ export function Form() {
             setValue={setPassword}
           />
           {error && <p className="text-xs text-red-600">{error}</p>}
-          <Button />
+          <Button isLoading={isLoading} />
         </div>
       </div>
     </form>
