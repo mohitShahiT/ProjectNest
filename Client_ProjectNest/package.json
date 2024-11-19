@@ -25,6 +25,7 @@
     "react-pdf": "^9.0.0",
     "react-router-dom": "^6.23.0",
     "react-scroll-to-bottom": "^4.2.0",
+    "react-spinners": "^0.14.1",
     "socket.io-client": "^4.7.5",
     "tailwind-datepicker-react": "^1.4.3"
   },
